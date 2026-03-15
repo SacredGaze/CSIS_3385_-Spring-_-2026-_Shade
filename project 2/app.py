@@ -43,7 +43,7 @@ def create_user():
    return jsonify(new_user), 201
 
 # PUT: Update user by ID
-@app.route('/users/jshade', methods=['PUT'])
+@app.route('/users/<int:user_id>', methods=['PUT'])
 def update_user(user_id):
    data = request.get_json()
    for user in users:
@@ -58,7 +58,7 @@ def update_user(user_id):
 
 
 # DELETE: Remove user by ID
-@app.route('/users/jshade', methods=['DELETE'])
+@app.route('/users/<int:user_id>', methods=['DELETE'])
 def delete_user(user_id):
   global users
   user = next((u for u in users if u['id'] == user_id), None)
